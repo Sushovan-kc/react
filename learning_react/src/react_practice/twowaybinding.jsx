@@ -30,7 +30,7 @@ const TwoWayBinding = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 className='px-4 py-2 border-2 border-gray-300 rounded-xl'
             />
-            <button type="submit" className='px-4 py-2 bg-red-500 text-white rounded'>
+            <button type="submit" className='px-4 py-2 bg-red-500 text-rounded'>
                 Submit
             </button>
         </form>
