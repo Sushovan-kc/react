@@ -1,9 +1,15 @@
 import React from 'react'
-import UseStatePractice from './useStatePractice'
+import UseStatePractice from './react_practice/useStatePractice'
+import TwoWayBinding from './react_practice/twowaybinding'
 const App = () => {
   return (
     <>
-    <UseStatePractice />
+    <div>
+      <UseStatePractice />
+    </div>
+    <div>
+      <TwoWayBinding />
+    </div>
     </>
   )
 }
