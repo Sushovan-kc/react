@@ -1,0 +1,24 @@
+# Logs
+learning_react/logs
+learning_react/*.log
+learning_react/npm-debug.log*
+learning_react/yarn-debug.log*
+learning_react/yarn-error.log*
+learning_react/pnpm-debug.log*
+learning_react/lerna-debug.log*
+
+learning_react/node_modules
+learning_react/dist
+learning_react/dist-ssr
+learning_react/*.local
+
+# Editor directories and files
+learning_react/.vscode/*
+!learning_react/.vscode/extensions.json
+learning_react/.idea
+learning_react/.DS_Store
+learning_react/*.suo
+learning_react/*.ntvs*
+learning_react/*.njsproj
+learning_react/*.sln
+learning_react/*.sw?
