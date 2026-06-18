@@ -14,6 +14,9 @@ const App = () => {
     <div>
       <Notes />
     </div>
+    <div>
+      <h1 className='text-2xl font-bold text-center'>new app</h1>
+    </div>
     </>
   )
 }
