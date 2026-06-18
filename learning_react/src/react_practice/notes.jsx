@@ -21,6 +21,13 @@ const handleSubmit = (e) => {
     setContent('')
 }
 
+const handledelete = (index) => {
+    const copyNotes = [...notes]
+    copyNotes.splice(index, 1)
+    setNotes(copyNotes)
+    // console.log('delete note at index:', index)
+}
+
   return (
     <div className='bg-black text-lime-400  flex flex-wrap flex-col'>
         <h1 className="text-2xl font-bold text-center">Notes</h1>
@@ -45,13 +52,13 @@ const handleSubmit = (e) => {
             </button>
         </form>
    
-    <div className="flex flex-col lg:border-2 lg:overflow-auto  h-full w-2/3 border-b-lime-400 p-5 rounded-lg bg-black text-lime-300 gap-5">
+    <div className="flex flex-col lg:border-2 lg:overflow-auto  h-auto w-2/3 border-b-lime-400 p-5 rounded-lg bg-black text-lime-300 gap-5">
         <div>
             <h2 className="text-xl font-bold">Recent Notes</h2>
         </div>
         <div className="flex flex-wrap items-start gap-5 h-full lg:overflow-auto">
             {notes.map((note, index) => (
-                <Notefield key={index} title={note.title} content={note.content} />
+                <Notefield key={index} id ={index} title={note.title} content={note.content} ondelete={handledelete} />
             ))}
             {/* <div className="flex flex-row bg-lime-100 border-2 gap-5 h-20  p-5 rounded-lg text-black">
                     <p>this is note.</p>
