@@ -2,6 +2,7 @@ import React from 'react'
 import UseStatePractice from './react_practice/useStatePractice'
 import TwoWayBinding from './react_practice/twowaybinding'
 import Notes from './react_practice/notes'
+import Gallery from './react_practice/gallery'
 const App = () => {
   return (
     <>
@@ -11,12 +12,8 @@ const App = () => {
     <div>
       <TwoWayBinding />
     </div>
-    <div>
       <Notes />
-    </div>
-    <div>
-      <h1 className='text-2xl font-bold text-center'>new app</h1>
-    </div>
+      <Gallery />
     </>
   )
 }

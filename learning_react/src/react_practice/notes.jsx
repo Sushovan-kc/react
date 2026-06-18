@@ -29,44 +29,49 @@ const handledelete = (index) => {
 }
 
   return (
-    <div className='bg-black text-lime-400  flex flex-wrap flex-col'>
-        <h1 className="text-2xl font-bold text-center">Notes</h1>
-    <div className="flex gap-5 top-0 left-0 p-5">
-        <form className="flex flex-col flex-wrap items-left h-full w-1/3 border-2 border-b-lime-400 p-5 rounded-lg bg-black text-lime-300 gap-5" onSubmit={handleSubmit}>
+   <div className='bg-black text-lime-400 flex flex-col h-screen overflow-hidden'>
+    {/* Fixed Header */}
+    <h1 className="text-2xl font-bold text-center py-4">Notes</h1>
+    
+    {/* Main Content Area - This fills up the remaining screen space */}
+    <div className="flex-1 flex flex-row gap-5 px-5 pb-5 overflow-hidden">
+        
+        {/* Left Side: Form Container (Fixed/Sticky Height) */}
+        <form className="flex flex-col w-1/3 border-2 border-lime-400 p-5 rounded-lg bg-black text-lime-300 gap-5 h-full" onSubmit={handleSubmit}>
             <input 
-                className="px-4 py-2 border-2 border-lime-300 rounded-xl"   
+                className="px-4 py-2 border-2 border-lime-300 bg-black text-lime-400 rounded-xl focus:outline-none"   
                 type="text"
                 placeholder="Title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
             />
-            <input 
-                className="px-4 py-2 border-2 border-lime-300 rounded-xl h-32 justify-start "   
-                type="text"
+            {/* Changed from input to textarea for a proper multi-line content area */}
+            <textarea 
+                className="px-4 py-2 border-2 border-lime-300 bg-black text-lime-400 rounded-xl flex-1 resize-none focus:outline-none"   
                 placeholder="Content"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
             />
-            <button type="submit" className="px-4 py-2 bg-lime-500 text-white rounded">
+            <button type="submit" className="px-4 py-2 bg-lime-500 text-black font-bold rounded hover:bg-lime-400 active:scale-95 transition-transform duration-100">
                 Add Note
             </button>
         </form>
    
-    <div className="flex flex-col lg:border-2 lg:overflow-auto  h-auto w-2/3 border-b-lime-400 p-5 rounded-lg bg-black text-lime-300 gap-5">
-        <div>
-            <h2 className="text-xl font-bold">Recent Notes</h2>
+        {/* Right Side: Recent Notes Container (Matches Form height precisely & scrolls internally) */}
+        <div className="w-2/3 border-2 border-lime-400 p-5 rounded-lg bg-black text-lime-300 flex flex-col h-full overflow-hidden">
+            <h2 className="text-xl font-bold mb-4">Recent Notes</h2>
+            
+            {/* Scrollable list area for your note cards */}
+            <div className="overflow-y-auto pr-2 flex flex-wrap gap-4">
+                {notes.map((note, index) => (
+                    <Notefield key={index} id={index} title={note.title} content={note.content} ondelete={handledelete} />
+                ))}
+            </div>
         </div>
-        <div className="flex flex-wrap items-start gap-5 h-full lg:overflow-auto">
-            {notes.map((note, index) => (
-                <Notefield key={index} id ={index} title={note.title} content={note.content} ondelete={handledelete} />
-            ))}
-            {/* <div className="flex flex-row bg-lime-100 border-2 gap-5 h-20  p-5 rounded-lg text-black">
-                    <p>this is note.</p>
-            </div> */}
-        </div>
+
     </div>
-     </div>
-    </div>
+</div>
+
   )
 }
 
